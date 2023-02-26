@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "chatgpt markdown convertor",
+  "version": "0.1",
+  "description": "Converts the current page content to markdown format and automatically downloads it to the local machine.",
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "permissions": [
+    "downloads",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "Convert to Markdown and Download"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["turndown.js"]
+    }
+  ]
+}
